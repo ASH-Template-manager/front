@@ -1,0 +1,9 @@
+dispatch:
+  - url: "*/api/template/sync"
+    service: templates
+
+  - url: "*/api/metas/sync"
+    service: metas
+
+  - url: "*/*"
+    service: default
