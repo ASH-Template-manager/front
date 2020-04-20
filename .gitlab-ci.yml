@@ -1,0 +1,39 @@
+stages:
+  - Build
+  - Deploy
+
+build:
+  stage: Build
+  image: node:latest
+  before_script:
+    - npm install --silent
+  script:
+    - node_modules/.bin/ng build --prod --aot
+  artifacts:
+    name: "project-$CI_COMMIT_REF_NAME"
+    paths:
+      - dist/
+  only:
+    - tags
+  except:
+    - /^issue-.*$/
+
+deploy:
+  stage: Deploy
+  image: google/cloud-sdk:alpine
+  environment:
+    name: prod
+    url: https://ash-template-manager.nw.r.appspot.com/
+  dependencies:
+    - build
+  only:
+    - tags
+  except:
+    - /^issue-.*$/
+  script:
+    - gcloud --version
+    - echo $CD_SERVICE_ACCOUNT > /tmp/$CI_PIPELINE_ID.json
+    - gcloud auth activate-service-account --key-file /tmp/$CI_PIPELINE_ID.json
+    - gcloud app deploy app.yml --project $PROJECT_ID --version=$CI_COMMIT_TAG --quiet
+  after_script:
+    - rm /tmp/$CI_PIPELINE_ID.json

@@ -1,9 +1,10 @@
 {
-  "name": "front",
-  "short_name": "front",
+  "name": "ASH Template Manager",
+  "short_name": "ASH Template Manager",
   "theme_color": "#000",
-  "background_color": "#fafafa",
+  "background_color": "#303030",
   "display": "standalone",
+  "orientation": "portrait",
   "scope": "./",
   "start_url": "./",
   "icons": [
