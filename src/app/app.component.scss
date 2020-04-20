@@ -1,0 +1,46 @@
+mat-sidenav-content {
+  height: calc(100vh - 64px);
+
+  @media screen and (max-width: 599px) {
+    height: calc(100vh - 56px);
+  }
+}
+
+mat-sidenav {
+  width: 35vw;
+
+  @media screen and (max-width: 599px) {
+    width: 50vw;
+  }
+}
+
+.filter-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1;
+}
+
+main {
+  background-color: #303030;
+  padding-top: 64px;
+
+  @media screen and (max-width: 599px) {
+    padding-top: 56px;
+  }
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+mat-progress-bar {
+  position: fixed;
+  top: 64px;
+
+  @media screen and (max-width: 599px) {
+    top: 56px;
+  }
+}

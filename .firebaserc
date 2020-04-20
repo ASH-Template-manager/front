@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ash-template-manager": {
+      "hosting": {
+        "front": [
+          "ash-template-manager"
+        ]
+      }
+    }
+  }
+}

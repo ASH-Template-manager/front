@@ -1,0 +1,12 @@
+.main-container {
+  height: 80vh;
+
+  .checkbox-container {
+    padding: 0 15px;
+
+    mat-checkbox {
+      font-size: large;
+      margin: 10px 0;
+    }
+  }
+}

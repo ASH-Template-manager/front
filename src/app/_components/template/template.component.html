@@ -1,0 +1,17 @@
+<div fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{(template.name.length>25)? (template.name | slice:0:25)+'...':(template.name)}}</mat-card-title>
+      <mat-card-subtitle>Template Wordpress</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="template.img" alt="template img">
+    <mat-card-content fxLayout="column">
+      <p fxFlex="60">
+        {{ (template.tags.join(', ').length > 125) ? (template.tags.join(', ') | slice:0:125) + '...' : (template.tags.join(', ')) }}
+      </p>
+      <mat-card-footer fxFlex="40">
+        <button mat-button (click)="openLink(template.refLink)">MORE INFO</button>
+      </mat-card-footer>
+    </mat-card-content>
+  </mat-card>
+</div>

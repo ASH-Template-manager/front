@@ -1,0 +1,16 @@
+<div class="full-width main-container">
+
+  <div fxLayoutAlign="space-between center">
+    <h1>Filters</h1>
+    <button mat-icon-button (click)="clearFilters()">
+      <mat-icon>settings_backup_restore</mat-icon>
+    </button>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="space-around start" class="checkbox-container">
+    <mat-checkbox *ngFor="let key of keys"
+                  (change)="select($event, key)"
+                  [checked]="tags[key].selected">{{key}} ({{tags[key].count}})</mat-checkbox>
+  </div>
+
+</div>

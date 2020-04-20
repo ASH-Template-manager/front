@@ -1,0 +1,24 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="over" #matSidenav>
+    <app-filters *ngIf="templates.length > 0"></app-filters>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="full-width" fxLayoutAlign="center center">
+      <div fxFlex="10" *ngIf="!isMobile" fxLayoutAlign="center center">
+        <button mat-icon-button class="filter-button" (click)="matSidenav.toggle()">
+          <mat-icon>filter_list</mat-icon>
+        </button>
+      </div>
+      <div fxFlex.lt-sm="100" fxFlex.gt-sm="90" fxLayoutAlign="center center">
+        <mat-form-field>
+          <mat-label>Search</mat-label>
+          <input matInput ngModel (ngModelChange)="search($event)">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+    <div fxLayout.lt-md="column" fxLayout.gt-md="row" fxLayoutAlign="center center" class="templates-container">
+      <app-template *ngFor="let template of filteredTemplates" fxFlex="33" [template]="template"></app-template>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

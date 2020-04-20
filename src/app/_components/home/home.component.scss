@@ -1,0 +1,35 @@
+.templates-container {
+  flex-wrap: wrap;
+
+  app-template {
+    height: auto;
+    margin-bottom: 0;
+  }
+}
+
+.filter-button {
+  color: white;
+}
+
+mat-form-field {
+  width: 90%;
+}
+
+mat-sidenav {
+  width: 30vw;
+  height: calc(100vh - 64px);
+  padding: 15px;
+  overflow-x: hidden;
+  position: fixed;
+  top: 64px;
+
+  ::ng-deep.mat-drawer-inner-container {
+    overflow-x: hidden !important;
+  }
+
+  app-filters {
+    overflow-x: hidden;
+  }
+}
+
+
